@@ -13,3 +13,14 @@ Turbolinks.start()
 ActiveStorage.start()
 
 import "controllers"
+
+// Import Bootstrap, load styles, and load Tooltips and Popovers everywhere.
+
+require("bootstrap")
+import "../stylesheets/application";
+document.addEventListener("turbolinks:load", function(){
+  $(function () {
+    $('[data-toggle="tooltip').tooltip()
+    $('[data-toggle="popover').popover()
+  })
+})
