@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Build a Twitter clone in 10 minutes with Rails, CableReady, and StimulusReflex
 
-Things you may want to cover:
+Following Tutorial by Hopsoft on YouTube.
 
-* Ruby version
+Real time reactive applications made simple. 
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- https://docs.stimulusreflex.com
+- https://cableready.stimulusreflex.com
+- https://rubyonrails.org
+- https://codefund.io
+- https://gitcoin.co
+- https://github.com/hopsoft/chatter - repo of project created in this video
