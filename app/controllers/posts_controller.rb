@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     @posts = Post.all.all.order(created_at: :desc)
+    @post = Post.new
   end
 
   # # GET /posts/1 or /posts/1.json
@@ -21,7 +22,8 @@ class PostsController < ApplicationController
 
   # POST /posts or /posts.json
   def create
-    Post.new(post_params)
+   # Post.new(post_params)
+    Post.create(post_params)
     redirect_to posts_path
     # respond_to do |format|
     #   if @post.save
