@@ -6,15 +6,17 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def create
     post = Post.create(post_params)
     cable_ready["timeline"].insert_adjacent_html(
       selector: "#timeline",
       position: "afterbegin",
-      html: render_to_string(partial: "post", locals: {post:post})
+      html: render_to_string(partial: "post", locals: {post: post})
     )
-    cable_ready_broadcast
+    cable_ready.broadcast
     redirect_to posts_path
-
+  end
+  
   private
     # # Use callbacks to share common setup or constraints between actions.
     # def set_post
