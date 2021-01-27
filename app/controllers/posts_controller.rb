@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   include CableReady::Broadcaster
 
   def index
-    @posts = Post.all.all.order(created_at: :desc)
+    @posts = Post.all.order(created_at: :desc)
     @post = Post.new
   end
 
@@ -16,16 +16,10 @@ class PostsController < ApplicationController
     cable_ready.broadcast
     redirect_to posts_path
   end
-  
-  private
-    # # Use callbacks to share common setup or constraints between actions.
-    # def set_post
-    #   @post = Post.find(params[:id])
-    # end
 
-    # Only allow a list of trusted parameters through.
-    def post_params
-      #params.require(:post).permit(:username, :body, :likes_count, :reposts_count)
-      params.require(:post).permit(:body)
-    end
+  private
+
+  def post_params
+    params.require(:post).permit(:body)
+  end
 end
