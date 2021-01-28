@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PostsReflex < ApplicationReflex
   include CableReady::Broadcaster
 
@@ -5,7 +7,7 @@ class PostsReflex < ApplicationReflex
     post = Post.find(element.dataset[:id])
     post.increment! :reposts_count
     cable_ready["timeline"].text_content(
-      selector: "post-#{post.id}-reposts",
+      selector: "#post-#{post.id}-reposts",
       text: post.reposts_count
     )
     cable_ready.broadcast
@@ -15,7 +17,7 @@ class PostsReflex < ApplicationReflex
     post = Post.find(element.dataset[:id])
     post.increment! :likes_count
     cable_ready["timeline"].text_content(
-      selector: "post-#{post.id}-likes",
+      selector: "#post-#{post.id}-likes",
       text: post.likes_count
     )
     cable_ready.broadcast
